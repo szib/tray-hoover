@@ -1,0 +1,38 @@
+{
+  "name": "node-es6-jest",
+  "version": "0.0.1",
+  "description": "Minimal Node with Babel and Jest",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf coverage build tmp",
+    "start": "nodemon --exec babel-node ./src/index.js",
+    "build": "babel src --out-dir ./build --source-maps",
+    "lint": "eslint ./src/**/*.js ./__tests__/**/*.js",
+    "lint:fix": "eslint --fix ./src/**/*.js ./__tests__/**/*.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [
+    "node",
+    "babel",
+    "ES6",
+    "jest",
+    "minimal"
+  ],
+  "author": "Ivan Szebenszki",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/register": "^7.6.2",
+    "eslint": "^6.5.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.3",
+    "rimraf": "^3.0.0"
+  }
+}
