@@ -4,8 +4,8 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['google', 'plugin:jest/recommended'],
-  plugins: ['jest'],
+  extends: ['google', 'plugin:jest/recommended', 'prettier'],
+  plugins: ['jest', 'prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -16,5 +16,6 @@ module.exports = {
   },
   rules: {
     'require-jsdoc': 'off',
+    'prettier/prettier': ['error'],
   },
 };
