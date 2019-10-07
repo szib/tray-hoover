@@ -46,6 +46,11 @@ describe('file IO', () => {
           validateInput(mockFsConfig['invalid_insturctions.txt']),
         ).toThrow();
       });
+      it('for extra line at the end', () => {
+        expect(() =>
+          validateInput(mockFsConfig['input_with_extra_line.txt']),
+        ).toThrow();
+      });
       it('for not enough pair of numbers', () => {
         expect(() =>
           validateInput(mockFsConfig['no_starting_position.txt']),
