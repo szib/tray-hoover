@@ -21,7 +21,9 @@
   ],
   "author": "Ivan Szebenszki",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "ramda": "^0.26.1"
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
