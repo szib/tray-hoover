@@ -8,7 +8,7 @@ import helpText from './helpText';
 
 (async function() {
   try {
-    const file = path.join(__dirname, 'input.txt');
+    const file = path.join(process.cwd(), 'input.txt');
     const fileContent = await getInput(file);
     const config = parseInput(fileContent);
     const output = run(config);

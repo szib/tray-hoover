@@ -1,12 +1,15 @@
 {
-  "name": "node-es6-jest",
+  "name": "hoover",
   "version": "0.0.1",
-  "description": "Minimal Node with Babel and Jest",
-  "main": "hoover.js",
+  "description": "Technical challenge for tray.io",
+  "main": "app.js",
+  "bin": "build/app.js",
   "scripts": {
-    "clean": "rimraf coverage build tmp",
-    "start": "nodemon --exec babel-node ./src/hoover.js",
+    "clean": "rimraf coverage build tmp bin",
+    "clean:build": "npm run clean && npm run build",
+    "start": "nodemon --exec babel-node ./src/app.js",
     "build": "babel src --out-dir ./build --source-maps",
+    "build:bin": "npm run clean:build && node ./scripts/build.js . && cp ./input.txt ./bin",
     "lint": "eslint ./src/**/*.js ./__tests__/**/*.js",
     "lint:fix": "eslint --fix ./src/**/*.js ./__tests__/**/*.js",
     "test": "jest --coverage",
@@ -21,6 +24,11 @@
   ],
   "author": "Ivan Szebenszki",
   "license": "MIT",
+  "pkg": {
+    "scripts": [
+      "build/**/*.js"
+    ]
+  },
   "dependencies": {
     "ramda": "^0.26.1"
   },
@@ -39,6 +47,7 @@
     "jest": "^24.9.0",
     "mock-fs": "^4.10.1",
     "nodemon": "^1.19.3",
+    "pkg": "^4.4.0",
     "prettier": "1.18.2",
     "rimraf": "^3.0.0"
   }
