@@ -4,6 +4,7 @@ import path from 'path';
 import { getInput } from './IO/readInputFile';
 import parseInput from './hoover/parseInput';
 import { run } from './hoover/hoover';
+import helpText from './helpText';
 
 (async function() {
   try {
@@ -14,5 +15,6 @@ import { run } from './hoover/hoover';
     console.log(output);
   } catch (error) {
     console.log(error.toString());
+    console.log(helpText);
   }
 })();
