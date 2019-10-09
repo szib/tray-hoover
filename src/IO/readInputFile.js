@@ -1,6 +1,8 @@
 import fs from 'fs';
 import util from 'util';
 
+import { trim } from 'ramda';
+
 import FileError from './FileError';
 
 const readFile = util.promisify(fs.readFile);
@@ -17,7 +19,7 @@ export function validateInput(fileContent) {
 export async function readInputFile(file) {
   try {
     const data = await readFile(file, 'utf8');
-    return data;
+    return trim(data);
   } catch (error) {
     throw new FileError('Cannot read file');
   }
