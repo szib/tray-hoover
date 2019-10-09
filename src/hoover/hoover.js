@@ -25,4 +25,12 @@ export const calculatePath = config => {
 export const countRemovedDust = (config, hooverPath) =>
   intersection(config.dustyPositions, hooverPath).length;
 
-export const finalPosition = path => last(path).join(' ');
+export const getFinalPosition = path => last(path).join(' ');
+
+export const run = config => {
+  const hooverPath = calculatePath(config);
+  const finalPosition = getFinalPosition(hooverPath);
+  const cleanedPositions = countRemovedDust(config, hooverPath);
+
+  return `${finalPosition}\n${cleanedPositions}`;
+};
