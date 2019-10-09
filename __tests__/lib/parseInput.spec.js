@@ -1,4 +1,4 @@
-import parseInput from '../../src/hoover/parseInput';
+import parseInput from '../../src/lib/parseInput';
 
 const testData = `5 5
 1 2

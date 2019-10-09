@@ -1,4 +1,4 @@
-import isInTheRoom from '../../src/hoover/room';
+import isInTheRoom from '../../src/lib/room';
 
 describe('room', () => {
   let subject;

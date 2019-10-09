@@ -1,4 +1,4 @@
-import * as Hoover from '../../src/hoover/hoover';
+import * as Hoover from '../../src/lib/hoover';
 
 describe('hoover', () => {
   describe('calculate path', () => {

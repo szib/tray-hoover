@@ -2,10 +2,10 @@
   "name": "node-es6-jest",
   "version": "0.0.1",
   "description": "Minimal Node with Babel and Jest",
-  "main": "index.js",
+  "main": "hoover.js",
   "scripts": {
     "clean": "rimraf coverage build tmp",
-    "start": "nodemon --exec babel-node ./src/index.js",
+    "start": "nodemon --exec babel-node ./src/hoover.js",
     "build": "babel src --out-dir ./build --source-maps",
     "lint": "eslint ./src/**/*.js ./__tests__/**/*.js",
     "lint:fix": "eslint --fix ./src/**/*.js ./__tests__/**/*.js",

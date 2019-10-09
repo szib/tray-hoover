@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import moves from '../../src/hoover/moves';
+import moves from '../../src/lib/moves';
 
 describe('moves', () => {
   let from;

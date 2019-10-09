@@ -2,8 +2,8 @@ import '@babel/polyfill';
 import path from 'path';
 
 import { getInput } from './IO/readInputFile';
-import parseInput from './hoover/parseInput';
-import { run } from './hoover/hoover';
+import parseInput from './lib/parseInput';
+import { run } from './lib/hoover';
 import helpText from './helpText';
 
 (async function() {
