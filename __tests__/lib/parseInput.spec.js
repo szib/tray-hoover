@@ -14,6 +14,14 @@ const testDataWithInvalidPositions = `5 5
 2 3
 NNESEESWNWW`;
 
+const testDataWithZeroRoomSize = `5 0
+4 4
+1 2
+1 0
+2 2
+2 3
+NNESEESWNWW`;
+
 const expected = {
   roomSize: [5, 5],
   startPosition: [1, 2],
@@ -28,5 +36,8 @@ describe('parseInput', () => {
 
   it('deals with invalid positions', () => {
     expect(() => parseInput(testDataWithInvalidPositions)).toThrow();
+  });
+  it('deals with zero size room', () => {
+    expect(() => parseInput(testDataWithZeroRoomSize)).toThrow();
   });
 });

@@ -8,7 +8,7 @@ import FileError from './FileError';
 const readFile = util.promisify(fs.readFile);
 
 export const validateInput = fileContent => {
-  const regex = /^(\d{1,} \d{1,}\n){2,}[NEWS]*$/;
+  const regex = /^([1-9]\d* [1-9]\d*\n){1}(\d{1,} \d{1,}\n){1,}[NEWS]*$/;
   if (!fileContent.match(regex)) {
     throw new FileError('Invalid file format');
   } else {
