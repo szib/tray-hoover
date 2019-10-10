@@ -1,19 +1,38 @@
+import { nth, pipe, drop, dropLast } from 'ramda';
+
 import positionValidator from './room';
 
-function convertToCoord(str) {
-  return str.split(' ').map(x => +x);
-}
+const breakToLines = str => str.split('\n');
+const convertToCoord = str => str.split(' ').map(x => +x);
+const convertToCoords = arr => arr.map(coord => convertToCoord(coord));
 
-function parseInput(input) {
-  const lines = input.split(`\n`);
-  const instructions = lines.pop();
+const getRoomSize = pipe(
+  breakToLines,
+  nth(0),
+  convertToCoord,
+);
+const getStartPosition = pipe(
+  breakToLines,
+  nth(1),
+  convertToCoord,
+);
+const getDustySpots = pipe(
+  breakToLines,
+  drop(2),
+  dropLast(1),
+  convertToCoords,
+);
+const getInstructions = pipe(
+  breakToLines,
+  nth(-1),
+);
 
-  const roomSize = convertToCoord(lines.shift());
+const parseInput = input => {
+  const roomSize = getRoomSize(input);
   const isInTheRoom = positionValidator(roomSize);
 
-  const startPosition = convertToCoord(lines.shift());
-  const dustyPositions = lines.map(s => convertToCoord(s));
-
+  const startPosition = getStartPosition(input);
+  const dustyPositions = getDustySpots(input);
   [startPosition, ...dustyPositions].forEach(pos => {
     if (!isInTheRoom(pos))
       throw new Error(
@@ -25,8 +44,8 @@ function parseInput(input) {
     roomSize,
     startPosition,
     dustyPositions,
-    instructions,
+    instructions: getInstructions(input),
   };
-}
+};
 
 export default parseInput;
